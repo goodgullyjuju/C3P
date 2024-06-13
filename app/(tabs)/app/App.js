@@ -3,35 +3,39 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 
-// Import Your Screen Components (Replace with your actual component names)
+import { addExercise, fetchExercises } from './firebaseService';
 import LoginScreen from './login'; 
 import SignUpScreen from './signup';
 import ClientDashboard from './client-dashboard';
 import CoachDashboard from './coach-dashboard';
 
-
 const Stack = createNativeStackNavigator();
 
-
 const HomeScreen = ({ navigation }) => {
-  // State to manage authentication status (replace with your actual logic)
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isCoach, setIsCoach] = useState(false); // Add state for user role
+  const [isCoach, setIsCoach] = useState(false);
+  const [exercises, setExercises] = useState([]);
 
   useEffect(() => {
-    // Check user authentication and role on component mount
-    // (You'll need to replace this with your actual authentication logic)
     const checkAuth = async () => {
-      // ... your authentication logic ...
-      // Update setIsLoggedIn and setIsCoach based on the authentication result
+      // Your authentication logic here
     };
     checkAuth();
+    getExercisesFromFirebase();
   }, []);
+
+  const addExerciseToFirebase = async (exercise) => {
+    await addExercise(exercise);
+  };
+
+  const getExercisesFromFirebase = async () => {
+    const exercises = await fetchExercises();
+    setExercises(exercises);
+  };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to C3P Fitness App</Text>
-      {/* Conditional rendering based on authentication status and role */}
       {!isLoggedIn ? (
         <>
           <Button

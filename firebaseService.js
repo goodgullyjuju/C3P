@@ -1,4 +1,5 @@
 // firebaseService.js
+// firebaseService.js
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, doc, addDoc, getDocs, getDoc, updateDoc } from 'firebase/firestore';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
@@ -75,25 +76,24 @@ export async function getVideoUrl(path) {
     return await getDownloadURL(ref(storage, path));
   } catch (error) {
     console.error("Error getting video URL: ", error);
-  }import { addExercise, fetchExercises } from './firebaseService';
+  }
+}
 
-  const addExerciseToFirebase = async (exercise) => {
-    await addExercise(exercise);
-  };
-  
-  const getExercisesFromFirebase = async () => {
-    const exercises = await fetchExercises();
-    setExercises(exercises);
-  };
-  import { addExercise, fetchExercises } from './firebaseService';
+// Example Exercise Functions
+export async function addExercise(exerciseData) {
+  try {
+    const docRef = await addDoc(collection(firestore, "exercises"), exerciseData);
+    console.log("Exercise added with ID: ", docRef.id);
+  } catch (error) {
+    console.error("Error adding exercise: ", error);
+  }
+}
 
-  const addExerciseToFirebase = async (exercise) => {
-    await addExercise(exercise);
-  };
-  
-  const getExercisesFromFirebase = async () => {
-    const exercises = await fetchExercises();
-    setExercises(exercises);
-  };
-  
+export async function fetchExercises() {
+  const querySnapshot = await getDocs(collection(firestore, "exercises"));
+  const exercises = [];
+  querySnapshot.forEach((doc) => {
+    exercises.push({ id: doc.id, ...doc.data() });
+  });
+  return exercises;
 }
