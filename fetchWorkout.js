@@ -1,0 +1,4 @@
+const fetchWorkouts = () => {
+    return workouts;
+  };
+  
