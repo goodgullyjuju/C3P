@@ -8,6 +8,8 @@ import LoginScreen from './login';
 import SignUpScreen from './signup';
 import ClientDashboard from './client-dashboard';
 import CoachDashboard from './coach-dashboard';
+import WorkoutTab from './WorkoutTab';
+import exampleWorkout from './Workout';
 
 const Stack = createNativeStackNavigator();
 
@@ -66,8 +68,14 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
-
+function App() {
+  console.log('Example Workout:', exampleWorkout);
+  return (
+    <div>
+      <WorkoutTab />
+    </div>
+  );
+}};
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -77,5 +85,5 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     marginBottom: 20,
-  },
+  }
 });
