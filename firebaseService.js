@@ -75,5 +75,25 @@ export async function getVideoUrl(path) {
     return await getDownloadURL(ref(storage, path));
   } catch (error) {
     console.error("Error getting video URL: ", error);
-  }
+  }import { addExercise, fetchExercises } from './firebaseService';
+
+  const addExerciseToFirebase = async (exercise) => {
+    await addExercise(exercise);
+  };
+  
+  const getExercisesFromFirebase = async () => {
+    const exercises = await fetchExercises();
+    setExercises(exercises);
+  };
+  import { addExercise, fetchExercises } from './firebaseService';
+
+  const addExerciseToFirebase = async (exercise) => {
+    await addExercise(exercise);
+  };
+  
+  const getExercisesFromFirebase = async () => {
+    const exercises = await fetchExercises();
+    setExercises(exercises);
+  };
+  
 }
