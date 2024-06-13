@@ -1,0 +1,77 @@
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+
+// Import Your Screen Components (Replace with your actual component names)
+import LoginScreen from './login'; 
+import SignUpScreen from './signup';
+import ClientDashboard from './client-dashboard';
+import CoachDashboard from './coach-dashboard';
+
+
+const Stack = createNativeStackNavigator();
+
+
+const HomeScreen = ({ navigation }) => {
+  // State to manage authentication status (replace with your actual logic)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isCoach, setIsCoach] = useState(false); // Add state for user role
+
+  useEffect(() => {
+    // Check user authentication and role on component mount
+    // (You'll need to replace this with your actual authentication logic)
+    const checkAuth = async () => {
+      // ... your authentication logic ...
+      // Update setIsLoggedIn and setIsCoach based on the authentication result
+    };
+    checkAuth();
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Welcome to C3P Fitness App</Text>
+      {/* Conditional rendering based on authentication status and role */}
+      {!isLoggedIn ? (
+        <>
+          <Button
+            title="Login"
+            onPress={() => navigation.navigate('Login')}
+          />
+          <Button
+            title="Sign Up"
+            onPress={() => navigation.navigate('SignUp')}
+          />
+        </>
+      ) : isCoach ? (
+        <CoachDashboard />
+      ) : (
+        <ClientDashboard />
+      )}
+    </View>
+  );
+};
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="SignUp" component={SignUpScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
+  },
+});
