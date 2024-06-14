@@ -1,6 +1,6 @@
 // AppContext.js
 import React, { createContext, useState, useEffect } from 'react';
-import { fetchExercises, getAllWorkouts } from './firebaseService';
+import { fetchExercises, getAllWorkouts } from './supabaseService'; // Update this import to use Supabase
 
 export const AppContext = createContext();
 
@@ -8,7 +8,7 @@ export const AppProvider = ({ children }) => {
   const [exercises, setExercises] = useState([]);
   const [workouts, setWorkouts] = useState([]);
 
-  const getExercisesFromFirebase = async () => {
+  const getExercisesFromSupabase = async () => {
     try {
       const exercises = await fetchExercises();
       setExercises(exercises);
@@ -17,7 +17,7 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  const getWorkoutsFromFirebase = async () => {
+  const getWorkoutsFromSupabase = async () => {
     try {
       const workouts = await getAllWorkouts();
       setWorkouts(workouts);
@@ -27,8 +27,8 @@ export const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getExercisesFromFirebase();
-    getWorkoutsFromFirebase();
+    getExercisesFromSupabase();
+    getWorkoutsFromSupabase();
   }, []);
 
   return (
