@@ -1,7 +1,6 @@
-// WorkoutDetailsScreen.js
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { firebaseService } from './firebaseService';
+import { getCustomizedWorkout } from './supabaseService'; // Import the function from supabaseService
 
 export default function WorkoutDetailsScreen({ route }) {
   const { workoutId } = route.params;
@@ -9,7 +8,7 @@ export default function WorkoutDetailsScreen({ route }) {
 
   useEffect(() => {
     const fetchWorkoutDetails = async () => {
-      const workoutDetails = await firebaseService.getCustomizedWorkout(workoutId);
+      const workoutDetails = await getCustomizedWorkout(workoutId);
       setWorkout(workoutDetails);
     };
     fetchWorkoutDetails();
