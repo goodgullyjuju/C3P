@@ -2,8 +2,8 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Supabase Configuration
-const supabaseUrl = 'https://xyzcompany.supabase.co';
-const supabaseKey = 'public-anon-key';
+const supabaseUrl = 'https://vphkpvkopwpqrjdmtilt.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZwaGtwdmtvcHdwcXJqZG10aWx0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTgzNjkyMTMsImV4cCI6MjAzMzk0NTIxM30.1p9t2d8FGETyeJR3QQR4bW9Q9Ih2sZZxfALGYazdVA8';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Function to add a workout to Supabase
