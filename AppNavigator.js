@@ -1,11 +1,10 @@
 // AppNavigator.js
 
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, Button } from 'react-native';
-import { fetchWorkouts, getClientWorkout } from './firebaseService';
+import { fetchWorkouts, getClientWorkout } from './supabaseService'; // Update this import to use Supabase
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +13,7 @@ function HomeScreen({ navigation }) {
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
-    // Fetch workouts from Firestore
+    // Fetch workouts from Supabase
     const loadWorkouts = async () => {
       const data = await fetchWorkouts();
       setWorkouts(data);
@@ -70,4 +69,3 @@ export default function AppNavigator() {
     </NavigationContainer>
   );
 }
-
