@@ -39,7 +39,7 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to C3P Fitness App</Text>
+      <Text style={styles.title}>Welcome to Cover3 Performance App</Text>
       {!isLoggedIn ? (
         <>
           <Button
@@ -73,16 +73,6 @@ function MainApp() {
     </AppProvider>
   );
 }
-
-const App = () => {
-  console.log('Example Workout:', exampleWorkout);
-  return (
-    <View style={{ flex: 1 }}>
-      <WorkoutTab />
-    </View>
-  );
-};
-
 
 export default MainApp;
 
