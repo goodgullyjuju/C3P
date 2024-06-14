@@ -1,10 +1,10 @@
 // workoutService.js
-import { addWorkout, fetchWorkouts, getCustomizedWorkout, updateCustomizedWorkout, getVideoUrl } from './firebaseService';
+import { addWorkout, fetchWorkouts, getCustomizedWorkout, updateCustomizedWorkout, getVideoUrl } from './supabaseService';
 
 // Workout Data Structure (Example)
 export async function createWorkoutData() {
   try {
-    const videoUrl = await getVideoUrl('path/to/your/video.mp4'); // Get URL from Firebase Storage
+    const videoUrl = await getVideoUrl('path/to/your/video.mp4'); // Get URL from Supabase Storage
     return {
       name: "iFIT Workout or Weighted Walk",
       videoUrl,
