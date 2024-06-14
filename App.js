@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-
+import React from 'react';
+import { AppProvider } from './AppContext';
+import ExerciseList from './ExerciseList';
+import WorkoutList from './WorkoutList';
 import { addExercise, fetchExercises } from './firebaseService';
 import LoginScreen from './login'; 
 import SignUpScreen from './signup';
@@ -34,7 +37,18 @@ const HomeScreen = ({ navigation }) => {
     const exercises = await fetchExercises();
     setExercises(exercises);
   };
-
+  const App = () => {
+    return (
+      <AppProvider>
+        <div>
+          <ExerciseList />
+          <WorkoutList />
+        </div>
+      </AppProvider>
+    );
+  };
+  
+  
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to C3P Fitness App</Text>
