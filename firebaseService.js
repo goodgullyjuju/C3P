@@ -3,7 +3,7 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, doc, addDoc, getDocs, getDoc, updateDoc } from 'firebase/firestore';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
-
+import { addExercise, fetchExercises } from './firebaseService';
 // Firebase Configuration
 const firebaseConfig = {
   // ...your Firebase project configuration...
@@ -13,7 +13,15 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const firestore = getFirestore(app);
 const storage = getStorage(app);
-
+const addExerciseToFirebase = async (exercise) => {
+    await addExercise(exercise);
+  };
+  
+  const getExercisesFromFirebase = async () => {
+    const exercises = await fetchExercises();
+    setExercises(exercises);
+  };
+   
 // Function to add a workout to Firestore
 export async function addWorkout(workoutData) {
   try {
