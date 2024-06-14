@@ -83,6 +83,7 @@ const App = () => {
   );
 };
 
+
 export default MainApp;
 
 const styles = StyleSheet.create({

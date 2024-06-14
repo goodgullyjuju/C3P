@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "C3PFitnessApp",
-    "slug": "C3PFitnessApp",
+    "name": "Cover3PerformanceApp",
+    "slug": "cover3performanceapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
