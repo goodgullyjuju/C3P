@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
 import { AppProvider } from './AppContext';
 import ExerciseList from './ExerciseList';
 import WorkoutList from './WorkoutList';
-import { addExercise, fetchExercises } from './firebaseService';
+import { addExercise, fetchExercises } from './supabaseService'; // Update this import to use Supabase
 import LoginScreen from './login'; 
 import SignUpScreen from './signup';
 import ClientDashboard from './client-dashboard';
@@ -37,18 +36,7 @@ const HomeScreen = ({ navigation }) => {
     const exercises = await fetchExercises();
     setExercises(exercises);
   };
-  const App = () => {
-    return (
-      <AppProvider>
-        <div>
-          <ExerciseList />
-          <WorkoutList />
-        </div>
-      </AppProvider>
-    );
-  };
-  
-  
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to C3P Fitness App</Text>
@@ -72,24 +60,31 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 
-export default function App() {
+function MainApp() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="SignUp" component={SignUpScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AppProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="SignUp" component={SignUpScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AppProvider>
   );
-function App() {
+}
+
+const App = () => {
   console.log('Example Workout:', exampleWorkout);
   return (
-    <div>
+    <View style={{ flex: 1 }}>
       <WorkoutTab />
-    </div>
+    </View>
   );
-}};
+};
+
+export default MainApp;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -99,5 +94,5 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     marginBottom: 20,
-  }
+  },
 });
