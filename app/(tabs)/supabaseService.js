@@ -9,8 +9,11 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 // Function to add a workout to Supabase
 export async function addWorkout(workoutData) {
   const { data, error } = await supabase.from('workouts').insert([workoutData]);
-  if (error) console.error('Error adding workout: ', error);
-  else console.log('Workout added: ', data);
+  if (error) {
+    console.error('Error adding workout: ', error);
+  } else {
+    console.log('Workout added: ', data);
+  }
 }
 
 // Function to fetch all workouts from Supabase
@@ -91,8 +94,11 @@ export async function getVideoUrl(path) {
 // Example Exercise Functions
 export async function addExercise(exerciseData) {
   const { data, error } = await supabase.from('exercises').insert([exerciseData]);
-  if (error) console.error('Error adding exercise: ', error);
-  else console.log('Exercise added: ', data);
+  if (error) {
+    console.error('Error adding exercise: ', error);
+  } else {
+    console.log('Exercise added: ', data);
+  }
 }
 
 export async function fetchExercises() {
