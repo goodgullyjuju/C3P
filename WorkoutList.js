@@ -1,4 +1,5 @@
-const WorkoutList = ({ workouts }) => {
+import React, { useContext } from 'react';
+import { AppContext } from './AppContext';const WorkoutList = ({ workouts }) => {
     return (
       <div>
         {workouts.map((workout) => (
@@ -17,4 +18,4 @@ const WorkoutList = ({ workouts }) => {
       </div>
     );
   };
-  
+  export default WorkoutList; 
