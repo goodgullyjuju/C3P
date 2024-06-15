@@ -6,6 +6,7 @@ import { View, Text, Button, Image, StyleSheet } from 'react-native';
 import { fetchWorkouts, getClientWorkout } from '../services/supabaseService'; // Update this import to use Supabase
 import CoachDashboard from '../screens/CoachDashboard'; // Import CoachDashboard
 import ClientDashboard from '../screens/ClientDashboard'; // Import ClientDashboard
+import ExerciseListScreen from '../screens/ExerciseListScreen'; // Import ExerciseListScreen
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,10 @@ function HomeScreen({ navigation }) {
       <Button
         title="Go to Client Dashboard"
         onPress={() => navigation.navigate('ClientDashboard')}
+      />
+      <Button
+        title="Go to Exercise List"
+        onPress={() => navigation.navigate('ExerciseList')}
       />
     </View>
   );
@@ -100,6 +105,7 @@ export default function AppNavigator() {
         <Stack.Screen name="Details" component={DetailsScreen} />
         <Stack.Screen name="CoachDashboard" component={CoachDashboard} />
         <Stack.Screen name="ClientDashboard" component={ClientDashboard} />
+        <Stack.Screen name="ExerciseList" component={ExerciseListScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
