@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AppContext } from '../app/context/AppContext';const WorkoutList = ({ workouts }) => {
+import { AppContext } from '../context/AppContext';const WorkoutList = ({ workouts }) => {
     return (
       <div>
         {workouts.map((workout) => (
