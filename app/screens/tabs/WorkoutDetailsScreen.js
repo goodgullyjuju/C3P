@@ -1,6 +1,7 @@
+// app/screens/tabs/WorkoutDetailsScreen.js
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { getCustomizedWorkout } from './supabaseService'; // Import the function from supabaseService
+import { getCustomizedWorkout } from '../../services/supabaseService'; // Corrected import path
 
 export default function WorkoutDetailsScreen({ route }) {
   const { workoutId } = route.params;
