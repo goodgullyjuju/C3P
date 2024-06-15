@@ -1,7 +1,8 @@
 // WorkoutListScreen.js
+// app/screens/tabs/WorkoutListScreen.js
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
-import { fetchWorkouts } from './supabaseService'; // Update this import to use Supabase
+import { fetchWorkouts } from '../../services/supabaseService'; // Corrected import path
 
 export default function WorkoutListScreen({ navigation }) {
   const [workouts, setWorkouts] = useState([]);
@@ -40,4 +41,5 @@ const styles = StyleSheet.create({
     height: 44,
   },
 });
+
 
