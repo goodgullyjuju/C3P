@@ -1,11 +1,9 @@
 {
+  "extends": "@tsconfig/react-native/tsconfig.json", // Corrected inheritance
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "lib": ["dom", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -13,44 +11,22 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "react-native",       // Expo uses React Native's JSX
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./app/*"
-      ],
-      "@components/*": [
-        "./app/components/*"
-      ],
-      "@navigation/*": [
-        "./app/components/navigation/*"
-      ],
-      "@hooks/*": [
-        "./app/hooks/*"
-      ],
-      "@context/*": [
-        "./app/context/*"
-      ],
-      "@services/*": [
-        "./app/services/*"
-      ],
-      "@screens/*": [
-        "./app/screens/*"
-      ]
+      "@/*": ["./app/*"],
+      "@components/*": ["./app/components/*"],
+      "@navigation/*": ["./app/components/navigation/*"],
+      "@hooks/*": ["./app/hooks/*"],
+      "@context/*": ["./app/context/*"],
+      "@services/*": ["./app/services/*"],
+      "@screens/*": ["./app/screens/*"]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
-  "extends": "expo/tsconfig.base"
+  "include": ["**/*.ts", "**/*.tsx"], // Remove .expo folder from includes
+  "exclude": ["node_modules"]
 }
