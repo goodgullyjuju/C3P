@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, Button } from 'react-native';
-import { fetchWorkouts, getClientWorkout } from './supabaseService'; // Update this import to use Supabase
+import { fetchWorkouts, getClientWorkout } from '../services/supabaseService'; // Update this import to use Supabase
 
 const Stack = createNativeStackNavigator();
 
