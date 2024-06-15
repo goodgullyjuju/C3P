@@ -8,7 +8,7 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import { ThemedText } from '../components/navigation/ThemedText';
-
+import { ThemedView } from './ThemedView'
 const HEADER_HEIGHT = 250;
 
 type Props = PropsWithChildren<{
