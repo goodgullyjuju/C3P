@@ -1,11 +1,10 @@
 module.exports = function (api) {
   api.cache(true);
   return {
-    presets: [
-      'babel-preset-expo',{ jsxRuntime: 'automatic' },
-      '@babel/preset-env',
-      '@babel/preset-react',
-      '@babel/preset-typescript',
+    "presets": [
+      ["babel-preset-expo", {
+      "jsxRuntime": "automatic"
+    }]
     ],
     plugins: [
       'react-native-reanimated/plugin',
