@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { signInWithEmailAndPassword } from '../services/firebaseService'; // Adjust this import based on your actual Firebase service
+import { supabase } from '../services/supabaseService'; // Adjust this import based on your actual Supabase service
 
 export default function SignInScreen() {
   const [email, setEmail] = useState('');
@@ -10,7 +10,8 @@ export default function SignInScreen() {
 
   const handleSignIn = async () => {
     try {
-      await signInWithEmailAndPassword(email, password);
+      const { user, error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) throw error;
       navigation.navigate('Home'); // Adjust this based on your navigation structure
     } catch (error) {
       Alert.alert('Error', error.message);

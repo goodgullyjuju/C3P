@@ -5,7 +5,7 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = 'https://vphkpvkopwpqrjdmtilt.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZwaGtwdmtvcHdwcXJqZG10aWx0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTgzNjkyMTMsImV4cCI6MjAzMzk0NTIxM30.1p9t2d8FGETyeJR3QQR4bW9Q9Ih2sZZxfALGYazdVA8';
 const supabase = createClient(supabaseUrl, supabaseKey);
-
+export { supabase };
 // Function to add a workout to Supabase
 export async function addWorkout(workoutData) {
   const { data, error } = await supabase.from('workouts').insert([workoutData]);
@@ -15,7 +15,14 @@ export async function addWorkout(workoutData) {
     console.log('Workout added: ', data);
   }
 }
-
+// Function to sign in with email and password
+export async function signInWithPassword({ email, password }) {
+  const { user, error } = await supabase.auth.signInWithPassword({ email, password });
+  if (error) {
+    throw error;
+  }
+  return user;
+}
 // Function to fetch all workouts from Supabase
 export async function fetchWorkouts() {
   const { data, error } = await supabase.from('workouts').select('*');
