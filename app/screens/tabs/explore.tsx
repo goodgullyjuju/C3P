@@ -3,8 +3,8 @@ import { StyleSheet, ScrollView, View } from 'react-native';
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from '@/components/navigation/ThemedText';
+import { ThemedView } from '@/components/navigation/ThemedView';
 
 export default function ExploreScreen() {
   return (
