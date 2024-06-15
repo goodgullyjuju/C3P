@@ -1,6 +1,6 @@
 // AppContext.js
 import React, { createContext, useState, useEffect } from 'react';
-import { fetchExercises, getAllWorkouts } from './supabaseService'; // Update this import to use Supabase
+import { fetchExercises, getAllWorkouts } from '../services/supabaseService'; // Update this import to use Supabase
 
 export const AppContext = createContext();
 
