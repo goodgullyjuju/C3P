@@ -1,5 +1,5 @@
 // screens/HomeScreen.js
-import React from 'react';import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Button, Image, StyleSheet } from 'react-native';
 import { fetchWorkouts } from '../services/supabaseService'; // Update this import to use Supabase
 
