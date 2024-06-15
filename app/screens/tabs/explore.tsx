@@ -15,7 +15,7 @@ export default function ExploreScreen() {
       >
         <ScrollView>
           <ThemedText style={styles.title}>Explore</ThemedText>
-          <Collapsible>
+          <Collapsible title={''}>
             <ThemedText>Collapsible Content</ThemedText>
           </Collapsible>
           <ExternalLink href="https://example.com">
