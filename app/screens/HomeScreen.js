@@ -1,22 +1,34 @@
-import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+// screens/HomeScreen.js
+import React from 'react';import React, { useState, useEffect } from 'react';
+import { View, Text, Button, Image, StyleSheet } from 'react-native';
+import { fetchWorkouts } from '../services/supabaseService'; // Update this import to use Supabase
 
-const HomeScreen = () => {
-  const navigation = useNavigation();
+export default function HomeScreen({ navigation }) {
+  const [workouts, setWorkouts] = useState([]);
 
-  const handleNavigate = () => {
-    navigation.navigate('AnotherScreen'); // Change 'AnotherScreen' to the actual screen name you want to navigate to
-  };
+  useEffect(() => {
+    // Fetch workouts from Supabase
+    const loadWorkouts = async () => {
+      const data = await fetchWorkouts();
+      setWorkouts(data);
+    };
+    loadWorkouts();
+  }, []);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to the Home Screen!</Text>
-      <Text style={styles.subtitle}>This is your starting point.</Text>
-      <Button title="Go to Another Screen" onPress={handleNavigate} />
+      <Image source={require('../../assets/images/C3Plogo.png')} style={styles.logo} />
+      <Text style={styles.title}>Home Screen</Text>
+      {workouts.map(workout => (
+        <Text key={workout.id} style={styles.workoutText}>{workout.name}</Text>
+      ))}
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('WorkoutDetails')}
+      />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -24,19 +36,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: '#f8f9fa',
+  },
+  logo: {
+    width: 100,  // Adjust the width as needed
+    height: 100, // Adjust the height as needed
+    marginBottom: 20,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#333',
   },
-  subtitle: {
-    fontSize: 16,
-    marginBottom: 20,
-    color: '#666',
+  workoutText: {
+    fontSize: 18,
+    marginVertical: 5,
   },
 });
-
-export default HomeScreen;
