@@ -1,37 +1,28 @@
-// app/screens/tabs/WorkoutDetailsScreen.js
+// screens/tabs/WorkoutDetailsScreen.js
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { getCustomizedWorkout } from '../../services/supabaseService'; // Corrected import path
+import { getClientWorkout } from '../../services/supabaseService'; // Update this import to use Supabase
 
-export default function WorkoutDetailsScreen({ route }) {
-  const { workoutId } = route.params;
+export default function WorkoutDetailsScreen() {
   const [workout, setWorkout] = useState(null);
 
   useEffect(() => {
-    const fetchWorkoutDetails = async () => {
-      const workoutDetails = await getCustomizedWorkout(workoutId);
-      setWorkout(workoutDetails);
+    // Fetch a customized workout for a client (replace 'clientId' with actual client ID)
+    const loadWorkout = async () => {
+      const data = await getClientWorkout('clientId');
+      setWorkout(data);
     };
-    fetchWorkoutDetails();
-  }, [workoutId]);
-
-  if (!workout) {
-    return (
-      <View style={styles.container}>
-        <Text>Loading...</Text>
-      </View>
-    );
-  }
+    loadWorkout();
+  }, []);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{workout.name}</Text>
-      <Text>{workout.description}</Text>
-      <Text>{`Duration: ${workout.duration} mins`}</Text>
-      <Text>Exercises:</Text>
-      {workout.exercises.map((exercise, index) => (
-        <Text key={index}>{`${exercise.name}: ${exercise.sets} sets of ${exercise.reps}`}</Text>
-      ))}
+      <Text style={styles.title}>Workout Details Screen</Text>
+      {workout ? (
+        <Text style={styles.workoutText}>{workout.name}</Text>
+      ) : (
+        <Text>Loading...</Text>
+      )}
     </View>
   );
 }
@@ -39,11 +30,17 @@ export default function WorkoutDetailsScreen({ route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 20,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 20,
+  },
+  workoutText: {
+    fontSize: 18,
+    marginVertical: 5,
   },
 });
