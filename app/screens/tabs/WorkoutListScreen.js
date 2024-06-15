@@ -1,31 +1,26 @@
-// WorkoutListScreen.js
-// app/screens/tabs/WorkoutListScreen.js
+// screens/tabs/WorkoutListScreen.js
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
-import { fetchWorkouts } from '../../services/supabaseService'; // Corrected import path
+import { View, Text, StyleSheet } from 'react-native';
+import { fetchWorkouts } from '../../services/supabaseService'; // Update this import to use Supabase
 
-export default function WorkoutListScreen({ navigation }) {
+export default function WorkoutListScreen() {
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
-    const fetchWorkoutsList = async () => {
-      const fetchedWorkouts = await fetchWorkouts();
-      setWorkouts(fetchedWorkouts);
+    // Fetch workouts from Supabase
+    const loadWorkouts = async () => {
+      const data = await fetchWorkouts();
+      setWorkouts(data);
     };
-    fetchWorkoutsList();
+    loadWorkouts();
   }, []);
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={workouts}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => navigation.navigate('WorkoutDetails', { workoutId: item.id })}>
-            <Text style={styles.item}>{item.name}</Text>
-          </TouchableOpacity>
-        )}
-      />
+      <Text style={styles.title}>Workout List Screen</Text>
+      {workouts.map(workout => (
+        <Text key={workout.id} style={styles.workoutText}>{workout.name}</Text>
+      ))}
     </View>
   );
 }
@@ -33,13 +28,17 @@ export default function WorkoutListScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 20,
   },
-  item: {
-    padding: 10,
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  workoutText: {
     fontSize: 18,
-    height: 44,
+    marginVertical: 5,
   },
 });
-
-
