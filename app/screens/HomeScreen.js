@@ -23,8 +23,12 @@ export default function HomeScreen({ navigation }) {
         <Text key={workout.id} style={styles.workoutText}>{workout.name}</Text>
       ))}
       <Button
-        title="Go to Details"
+        title="Go to Workout Details"
         onPress={() => navigation.navigate('WorkoutDetails')}
+      />
+      <Button
+        title="Go to Workout List"
+        onPress={() => navigation.navigate('WorkoutList')}
       />
     </View>
   );
