@@ -4,9 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, Button, Image, StyleSheet } from 'react-native';
 import { fetchWorkouts, getClientWorkout } from '../services/supabaseService'; // Update this import to use Supabase
-import CoachDashboard from '../screens/CoachDashboard'; // Import CoachDashboard
-import ClientDashboard from '../screens/ClientDashboard'; // Import ClientDashboard
-import ExerciseListScreen from '../screens/ExerciseListScreen'; // Import ExerciseListScreen
+import CoachDashboard from '../screens/CoachDashboard';
+import ClientDashboard from '../screens/ClientDashboard';
+import SignInScreen from '../screens/SignInScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +25,7 @@ function HomeScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/images/C3P logo.png')} style={styles.logo} />
+      <Image source={require('../../assets/images/C3Plogo.png')} style={styles.logo} />
       <Text style={styles.title}>Home Screen</Text>
       {workouts.map(workout => (
         <Text key={workout.id} style={styles.workoutText}>{workout.name}</Text>
@@ -43,8 +43,8 @@ function HomeScreen({ navigation }) {
         onPress={() => navigation.navigate('ClientDashboard')}
       />
       <Button
-        title="Go to Exercise List"
-        onPress={() => navigation.navigate('ExerciseList')}
+        title="Sign In"
+        onPress={() => navigation.navigate('SignIn')}
       />
     </View>
   );
@@ -105,7 +105,7 @@ export default function AppNavigator() {
         <Stack.Screen name="Details" component={DetailsScreen} />
         <Stack.Screen name="CoachDashboard" component={CoachDashboard} />
         <Stack.Screen name="ClientDashboard" component={ClientDashboard} />
-        <Stack.Screen name="ExerciseList" component={ExerciseListScreen} />
+        <Stack.Screen name="SignIn" component={SignInScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
