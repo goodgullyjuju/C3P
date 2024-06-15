@@ -1,9 +1,8 @@
 // AppNavigator.js
-
 import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Image, StyleSheet } from 'react-native';
 import { fetchWorkouts, getClientWorkout } from '../services/supabaseService'; // Update this import to use Supabase
 
 const Stack = createNativeStackNavigator();
@@ -22,10 +21,11 @@ function HomeScreen({ navigation }) {
   }, []);
 
   return (
-    <View>
-      <Text>Home Screen</Text>
+    <View style={styles.container}>
+      <Image source={require('../assets/images/C3P logo.png')} style={styles.logo} />
+      <Text style={styles.title}>Home Screen</Text>
       {workouts.map(workout => (
-        <Text key={workout.id}>{workout.name}</Text>
+        <Text key={workout.id} style={styles.workoutText}>{workout.name}</Text>
       ))}
       <Button
         title="Go to Details"
@@ -48,10 +48,10 @@ function DetailsScreen() {
   }, []);
 
   return (
-    <View>
-      <Text>Details Screen</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Details Screen</Text>
       {workout ? (
-        <Text>{workout.name}</Text>
+        <Text style={styles.workoutText}>{workout.name}</Text>
       ) : (
         <Text>Loading...</Text>
       )}
@@ -59,13 +59,37 @@ function DetailsScreen() {
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  logo: {
+    width: 100,  // Adjust the width as needed
+    height: 100, // Adjust the height as needed
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  workoutText: {
+    fontSize: 18,
+    marginVertical: 5,
+  },
+});
+
 export default function AppNavigator() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
