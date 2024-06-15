@@ -1,7 +1,7 @@
 // ExerciseList.js
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { AppContext } from '../../context/AppContext'; // Adjust the path as per your directory structure
+import { AppContext } from '../context/AppContext'; // Corrected path
 
 const ExerciseList = () => {
   const { exercises } = useContext(AppContext);
@@ -37,6 +37,3 @@ const styles = StyleSheet.create({
 });
 
 export default ExerciseList;
-
-
-     
