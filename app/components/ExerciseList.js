@@ -1,6 +1,6 @@
 // ExerciseList.js
 import React, { useContext } from 'react';
-import { AppContext } from './AppContext';
+import { AppContext } from '../app/context/AppContext';
 
 const ExerciseList = () => {
   const { exercises } = useContext(AppContext);
