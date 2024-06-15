@@ -1,5 +1,7 @@
+import React from 'react';
 import { Text, type TextProps, StyleSheet } from 'react-native';
 import { useThemeColor } from '@/hooks/useThemeColor'; // Update the path as per your directory structure
+
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
