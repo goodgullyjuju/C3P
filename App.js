@@ -1,90 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { AppProvider } from './app/context/AppContext';
-import ExerciseList from '@/components/ExerciseList';
-import WorkoutList from '@/components/WorkoutList';
-import { addExercise, fetchExercises } from '@services/supabaseService';
-import LoginScreen from './login'; 
-import SignUpScreen from './signup';
-import ClientDashboard from './client-dashboard';
-import CoachDashboard from './coach-dashboard';
-import WorkoutTab from './WorkoutTab';
-import exampleWorkout from './Workout';
+import AppNavigator from './app/navigator/AppNavigator';
 
-
-const Stack = createNativeStackNavigator();
-
-const HomeScreen = ({ navigation }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isCoach, setIsCoach] = useState(false);
-  const [exercises, setExercises] = useState([]);
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      // Your authentication logic here
-    };
-    checkAuth();
-    getExercisesFromSupabase();
-  }, []);
-
-  const addExerciseToSupabase = async (exercise) => {
-    await addExercise(exercise);
-  };
-
-  const getExercisesFromSupabase = async () => {
-    const exercises = await fetchExercises();
-    setExercises(exercises);
-  };
-
+export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Cover3 Performance App</Text>
-      {!isLoggedIn ? (
-        <>
-          <Button
-            title="Login"
-            onPress={() => navigation.navigate('Login')}
-          />
-          <Button
-            title="Sign Up"
-            onPress={() => navigation.navigate('SignUp')}
-          />
-        </>
-      ) : isCoach ? (
-        <CoachDashboard />
-      ) : (
-        <ClientDashboard />
-      )}
-    </View>
-  );
-};
-
-function MainApp() {
-  return (
-    <AppProvider>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="SignUp" component={SignUpScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </AppProvider>
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
   );
 }
-
-export default MainApp;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 24,
-    marginBottom: 20,
-  },
-});

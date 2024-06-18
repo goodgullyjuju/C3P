@@ -3,15 +3,16 @@ import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { supabase } from '../services/supabaseService'; // Adjust this import based on your actual Supabase service
 
-export default function SignInScreen() {
+export default function SignUpScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
-  const handleSignIn = async () => {
+  const handleSignUp = async () => {
     try {
-      const { user, error } = await supabase.auth.signInWithPassword({ email, password });
+      const { user, error } = await supabase.auth.signUp({ email, password });
       if (error) throw error;
+      Alert.alert('Success', 'Check your email for the confirmation link.');
       navigation.navigate('Home'); // Adjust this based on your navigation structure
     } catch (error) {
       Alert.alert('Error', error.message);
@@ -20,7 +21,7 @@ export default function SignInScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sign In</Text>
+      <Text style={styles.title}>Sign Up</Text>
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -37,10 +38,10 @@ export default function SignInScreen() {
         secureTextEntry
         autoCapitalize="none"
       />
-      <Button title="Sign In" onPress={handleSignIn} />
+      <Button title="Sign Up" onPress={handleSignUp} />
       <Button
-        title="Don't have an account? Sign Up"
-        onPress={() => navigation.navigate('SignUp')} // Adjust this based on your navigation structure
+        title="Already have an account? Log In"
+        onPress={() => navigation.navigate('LogIn')} // Adjust this based on your navigation structure
       />
     </View>
   );

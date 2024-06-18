@@ -1,31 +1,52 @@
 // screens/HomeScreen.js
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, Image, StyleSheet } from 'react-native';
-import { fetchWorkouts } from '../services/supabaseService'; // Update this import to use Supabase
+import { fetchWorkouts, addExercise } from '../services/supabaseService'; // Adjust this import to use Supabase
+import ClientDashboard from './ClientDashboard';
+import CoachDashboard from './CoachDashboard';
 
 export default function HomeScreen({ navigation }) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isCoach, setIsCoach] = useState(false);
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
-    // Fetch workouts from Supabase
-    const loadWorkouts = async () => {
-      const data = await fetchWorkouts();
-      setWorkouts(data);
+    const checkAuth = async () => {
+      // Your authentication logic here
     };
-    loadWorkouts();
+    checkAuth();
+    getExercisesFromSupabase();
   }, []);
+
+  const addExerciseToSupabase = async (exercise) => {
+    await addExercise(exercise);
+  };
+
+  const getExercisesFromSupabase = async () => {
+    const exercises = await fetchWorkouts();
+    setWorkouts(exercises);
+  };
 
   return (
     <View style={styles.container}>
       <Image source={require('../../assets/images/C3Plogo.png')} style={styles.logo} />
-      <Text style={styles.title}>Home Screen</Text>
-      {workouts.map(workout => (
-        <Text key={workout.id} style={styles.workoutText}>{workout.name}</Text>
-      ))}
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />
+      <Text style={styles.title}>Welcome to Cover3 Performance App</Text>
+      {!isLoggedIn ? (
+        <>
+          <Button
+            title="Log In"
+            onPress={() => navigation.navigate('LogIn')}
+          />
+          <Button
+            title="Sign Up"
+            onPress={() => navigation.navigate('SignUp')}
+          />
+        </>
+      ) : isCoach ? (
+        <CoachDashboard />
+      ) : (
+        <ClientDashboard />
+      )}
     </View>
   );
 }
