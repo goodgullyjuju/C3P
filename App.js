@@ -5,13 +5,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { AppProvider } from './app/context/AppContext';
 import ExerciseList from '@/components/ExerciseList';
 import WorkoutList from '@/components/WorkoutList';
-import { addExercise, fetchExercises } from './supabaseService'; // Update this import to use Supabase
+import { addExercise, fetchExercises } from '@services/supabaseService';
 import LoginScreen from './login'; 
 import SignUpScreen from './signup';
 import ClientDashboard from './client-dashboard';
 import CoachDashboard from './coach-dashboard';
 import WorkoutTab from './WorkoutTab';
 import exampleWorkout from './Workout';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -25,14 +26,14 @@ const HomeScreen = ({ navigation }) => {
       // Your authentication logic here
     };
     checkAuth();
-    getExercisesFromFirebase();
+    getExercisesFromSupabase();
   }, []);
 
-  const addExerciseToFirebase = async (exercise) => {
+  const addExerciseToSupabase = async (exercise) => {
     await addExercise(exercise);
   };
 
-  const getExercisesFromFirebase = async () => {
+  const getExercisesFromSupabase = async () => {
     const exercises = await fetchExercises();
     setExercises(exercises);
   };
