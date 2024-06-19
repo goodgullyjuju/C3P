@@ -1,4 +1,3 @@
-// app/_layout.tsx
 import { Stack } from 'expo-router';
 import { useCallback } from 'react';
 import { useFonts } from 'expo-font';
@@ -8,7 +7,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
-    'SpaceMonoRegular': require('../assets/fonts/SpaceMono-Regular.ttf'),
+    'SpaceMonoRegular': require('@/assets/fonts/SpaceMono-Regular.ttf'),
   });
 
   const onLayoutRootView = useCallback(async () => {
