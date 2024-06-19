@@ -1,6 +1,7 @@
+// app/components/navigation/ThemedText.tsx
 import React from 'react';
 import { Text, type TextProps, StyleSheet } from 'react-native';
-import { useThemeColor } from '../hooks/useThemeColor'; // Update the path as per your directory structure
+import { useThemeColor } from '../../hooks/useThemeColor'; // Adjust the path as needed
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
@@ -28,7 +29,6 @@ export function ThemedText({
         type === 'link' ? styles.link : undefined,
         style,
       ]}
-      role="text" // Use role instead of accessibilityRole
       {...rest}
     />
   );
@@ -59,3 +59,5 @@ const styles = StyleSheet.create({
     color: '#0a7ea4',
   },
 });
+
+export default ThemedText;

@@ -1,6 +1,7 @@
+// app/components/navigation/ThemedView.tsx
 import React from 'react';
 import { View, StyleSheet, type ViewProps } from 'react-native';
-import { useThemeColor } from '../hooks/useThemeColor';
+import { useThemeColor } from '../../hooks/useThemeColor'; // Adjust the path as needed
 
 export type ThemedViewProps = ViewProps & {
   lightColor?: string;
@@ -27,3 +28,5 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
+
+export default ThemedView;
