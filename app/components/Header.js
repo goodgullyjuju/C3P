@@ -5,19 +5,20 @@ import { View, Text, StyleSheet } from 'react-native';
 export default function Header({ title }) {
   return (
     <View style={styles.header}>
-      <Text style={styles.text}>{title}</Text>
+      <Text style={styles.headerText}>{title}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   header: {
+    backgroundColor: '#007BFF',
     padding: 20,
-    backgroundColor: '#f8f9fa',
-    boxShadow: '0px 4px 6px rgba(0,0,0,0.1)', // Use boxShadow instead of shadow*
+    boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.1)', // Use boxShadow instead of shadow properties
   },
-  text: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  headerText: {
+    color: '#fff',
+    fontSize: 18,
+    textAlign: 'center',
   },
 });

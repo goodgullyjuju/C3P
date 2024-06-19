@@ -2,13 +2,13 @@
 import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
-export default function InputField({ value, onChangeText, placeholder }) {
+export default function InputField({ placeholder, value, onChangeText }) {
   return (
     <TextInput
       style={styles.input}
+      placeholder={placeholder}
       value={value}
       onChangeText={onChangeText}
-      placeholder={placeholder}
     />
   );
 }
@@ -18,6 +18,9 @@ const styles = StyleSheet.create({
     height: 40,
     borderColor: '#ccc',
     borderWidth: 1,
-    padding: 10,
+    paddingLeft: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+    boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.1)', // Use boxShadow instead of shadow properties
   },
 });
