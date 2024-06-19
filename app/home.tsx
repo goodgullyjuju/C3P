@@ -1,17 +1,38 @@
-// app/home.tsx
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, Image, StyleSheet } from 'react-native';
 import { fetchWorkouts, addExercise } from './services/supabaseService'; // Adjust this import to use Supabase
 import ClientDashboard from './client-dashboard';
 import CoachDashboard from './coach-dashboard';
-import { ParallaxScrollView } from '@components/ParallaxScrollView';
+import ParallaxScrollView from '@components/ParallaxScrollView'; // Correct the import statement
 import { ThemedText } from '@navigation/ThemedText';
 import { ThemedView } from '@navigation/ThemedView';
 
-export default function HomeScreen({ navigation }) {
+// Define types for navigation, exercise, and workouts
+interface NavigationProps {
+  navigate: (screen: string) => void;
+}
+
+interface Exercise {
+  exerciseId: string;
+  sets: number;
+  reps: number;
+  weight: number;
+}
+
+interface Workout {
+  id: string;
+  name: string;
+  exercises: Exercise[];
+}
+
+interface Props {
+  navigation: NavigationProps;
+}
+
+export default function HomeScreen({ navigation }: Props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isCoach, setIsCoach] = useState(false);
-  const [workouts, setWorkouts] = useState([]);
+  const [workouts, setWorkouts] = useState<Workout[]>([]);
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -21,7 +42,7 @@ export default function HomeScreen({ navigation }) {
     getExercisesFromSupabase();
   }, []);
 
-  const addExerciseToSupabase = async (exercise) => {
+  const addExerciseToSupabase = async (exercise: Exercise) => {
     await addExercise(exercise);
   };
 
