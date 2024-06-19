@@ -9,7 +9,7 @@ import CoachDashboard from '../coach-dashboard';
 import ProfileScreen from '../profile';
 import SettingsScreen from '../settings';
 import WorkoutListScreen from '../exercise-list';
-import WorkoutDetailsScreen from '../(tabs)/workout-details';
+import WorkoutDetailsScreen from '../tabs/workout-details';
 import ProgressScreen from '../progress';
 
 const Stack = createNativeStackNavigator();
