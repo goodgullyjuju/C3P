@@ -3,7 +3,7 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useCallback } from 'react';
-import { useColorScheme } from 'react-native';
+import { useColorScheme, View } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -31,10 +31,12 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack onLayout={onLayoutRootView}>
-        <Stack.Screen name="home" options={{ headerShown: false }} />
-        <Stack.Screen name="details" />
-      </Stack>
+      <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+        <Stack>
+          <Stack.Screen name="home" options={{ headerShown: false }} />
+          <Stack.Screen name="details" />
+        </Stack>
+      </View>
     </ThemeProvider>
   );
 }
