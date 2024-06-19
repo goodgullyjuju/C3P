@@ -1,16 +1,15 @@
 // app/views/Navigator.js
-
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from '../screens/HomeScreen';
-import LogInScreen from '../LogInScreen';
-import SignUpScreen from '../screens/SignUpScreen';
-import ClientDashboard from '../screens/ClientDashboard';
-import CoachDashboard from '../screens/CoachDashboard';
-import ProfileScreen from '../screens/ProfileScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-import WorkoutListScreen from '../screens/WorkoutListScreen';
-import WorkoutDetailsScreen from '../screens/tabs/WorkoutDetailsScreen';
+import HomeScreen from '../home';
+import LogInScreen from '../login';
+import SignUpScreen from '../signup';
+import ClientDashboard from '../client-dashboard';
+import CoachDashboard from '../coach-dashboard';
+import ProfileScreen from '../profile';
+import SettingsScreen from '../settings';
+import WorkoutListScreen from '../exercise-list';
+import WorkoutDetailsScreen from '../(tabs)/workout-details';
 import ProgressScreen from '../screens/ProgressScreen';
 
 const Stack = createNativeStackNavigator();
