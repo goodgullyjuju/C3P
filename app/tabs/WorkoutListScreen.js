@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
-import { fetchWorkouts } from '../../services/supabaseService'; // Adjust this import based on your actual service
+import { fetchWorkouts } from '../services/supabaseService'; // Adjust this import based on your actual service
 
 export default function WorkoutListScreen() {
   const [workouts, setWorkouts] = useState([]);
