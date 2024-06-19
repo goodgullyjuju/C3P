@@ -1,4 +1,4 @@
-// app/navigator/AppNavigator.js
+// app/views/Navigator.js
 
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -9,13 +9,13 @@ import ClientDashboard from '../screens/ClientDashboard';
 import CoachDashboard from '../screens/CoachDashboard';
 import ProfileScreen from '../screens/ProfileScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import WorkoutListScreen from '../screens/tabs/WorkoutListScreen';
+import WorkoutListScreen from '../screens/WorkoutListScreen';
 import WorkoutDetailsScreen from '../screens/tabs/WorkoutDetailsScreen';
 import ProgressScreen from '../screens/ProgressScreen';
 
 const Stack = createNativeStackNavigator();
 
-export default function AppNavigator() {
+export default function Navigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
