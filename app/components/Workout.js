@@ -1,4 +1,3 @@
-// Workout.js
 /**
  * @typedef {Object} Exercise
  * @property {string} id
@@ -27,26 +26,25 @@
  * @type {Workout}
  */
 const exampleWorkout = {
-    id: '1',
-    name: 'Full Body Workout',
-    description: 'A complete full body workout.',
-    exercises: [
-      {
-        id: '1',
-        name: 'Push Up',
-        description: 'A basic push up exercise.',
-        category: 'Strength',
-        equipment: 'None',
-        musclesWorked: ['Chest', 'Triceps'],
-        imageUrl: 'https://example.com/image.jpg',
-        videoUrl: 'https://example.com/video.mp4'
-      }
-      // ...other exercises
-    ],
-    category: 'Full Body',
-    duration: 45,
-    level: 'Intermediate'
-  };
-  
-  export default exampleWorkout;
-  
+  id: '1',
+  name: 'Full Body Workout',
+  description: 'A complete full body workout.',
+  exercises: [
+    {
+      id: '1',
+      name: 'Push Up',
+      description: 'A basic push up exercise.',
+      category: 'Strength',
+      equipment: 'None',
+      musclesWorked: ['Chest', 'Triceps'],
+      imageUrl: 'https://example.com/image.jpg',
+      videoUrl: 'https://example.com/video.mp4'
+    }
+    // ...other exercises
+  ],
+  category: 'Full Body',
+  duration: 45,
+  level: 'Intermediate'
+};
+
+export default exampleWorkout;
