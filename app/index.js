@@ -12,6 +12,11 @@ export default function Index() {
       <Stack.Screen name="exercise-list" options={{ title: "Exercise List" }} />
       <Stack.Screen name="profile" options={{ title: "Profile" }} />
       <Stack.Screen name="settings" options={{ title: "Settings" }} />
+      <Stack.Screen name="(tabs)/index" options={{ title: "Tabs" }} />
+      <Stack.Screen name="(tabs)/explore" options={{ title: "Explore" }} />
+      <Stack.Screen name="(tabs)/workout" options={{ title: "Workout" }} />
+      <Stack.Screen name="(tabs)/workout-details" options={{ title: "Workout Details" }} />
+      <Stack.Screen name="(tabs)/workout-tab" options={{ title: "Workout Tab" }} />
     </Stack>
   );
 }
