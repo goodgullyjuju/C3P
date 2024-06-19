@@ -1,21 +1,31 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-export default function Card({ children }) {
+export default function Card({ title, content }) {
   return (
     <View style={styles.card}>
-      {children}
+      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.content}>{content}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    boxShadow: '0px 4px 6px rgba(0,0,0,0.1)', // Use boxShadow instead of shadow*
+    backgroundColor: '#fff',
     padding: 20,
     borderRadius: 10,
-    backgroundColor: '#fff',
+    boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.1)', // Use boxShadow instead of shadow properties
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  content: {
+    fontSize: 14,
   },
 });
+
 
 
