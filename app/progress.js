@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { fetchClientProgress } from '../services/supabaseService'; // Update this import based on your actual service
+import { fetchClientProgress } from './services/supabaseService'; // Update this import based on your actual service
 
 export default function ProgressScreen() {
   const [progress, setProgress] = useState(null);
