@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, Image, StyleSheet } from 'react-native';
 import { fetchWorkouts, addExercise } from '../services/supabaseService'; // Adjust this import to use Supabase
-import ClientDashboard from '../ClientDashboard';
-import CoachDashboard from './CoachDashboard';
+import ClientDashboard from '../client-dashboard';
+import CoachDashboard from '../coach-dashboard';
 
 export default function HomeScreen({ navigation }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

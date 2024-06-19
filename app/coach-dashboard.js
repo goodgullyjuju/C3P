@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { fetchClients, fetchWorkouts } from '../services/supabaseService'; // Adjust this import based on your actual Supabase service
+import { fetchClients, fetchWorkouts } from './services/supabaseService'; // Adjust this import based on your actual Supabase service
 
 export default function CoachDashboard() {
   const [clients, setClients] = useState([]);
