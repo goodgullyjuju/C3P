@@ -1,13 +1,7 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import AppNavigator from './app/navigator/AppNavigator';
+import { registerRootComponent } from 'expo';
+import MainApp from './MainApp';  // Assuming MainApp is your root component
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <AppNavigator />
-    </NavigationContainer>
-  );
-}
-
-
+// registerRootComponent calls AppRegistry.registerComponent('main', () => MainApp);
+// It also ensures that whether you load the app in Expo Go or in a native build,
+// the environment is set up appropriately
+registerRootComponent(MainApp);
