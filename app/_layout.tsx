@@ -10,7 +10,7 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'), // Adjusted the path
+    'SpaceMonoRegular': require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
 
   useEffect(() => {
@@ -26,8 +26,8 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="Home" options={{ headerShown: false }} />
-        <Stack.Screen name="Details" />
+        <Stack.Screen name="home" options={{ headerShown: false }} />
+        {/* Define other screens here if needed */}
       </Stack>
     </ThemeProvider>
   );
