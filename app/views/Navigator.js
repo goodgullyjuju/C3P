@@ -3,7 +3,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
-import LogInScreen from '../screens/LogInScreen';
+import LogInScreen from '../LogInScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import ClientDashboard from '../screens/ClientDashboard';
 import CoachDashboard from '../screens/CoachDashboard';
