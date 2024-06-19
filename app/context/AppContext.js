@@ -1,7 +1,7 @@
-// AppContext.js
+// app/context/AppContext.js
 
 import React, { createContext, useState, useEffect } from 'react';
-import { fetchExercises, getAllWorkouts, supabase } from '../services/supabaseService'; // Update this import to use Supabase
+import { fetchExercises, getAllWorkouts, supabase } from '../services/supabaseService'; // Ensure supabase is properly imported
 
 export const AppContext = createContext();
 
@@ -30,6 +30,14 @@ export const AppProvider = ({ children }) => {
     }
   };
 
+  const addExercise = (exercise) => {
+    setExercises((prevExercises) => [...prevExercises, exercise]);
+  };
+
+  const addWorkout = (workout) => {
+    setWorkouts((prevWorkouts) => [...prevWorkouts, workout]);
+  };
+
   useEffect(() => {
     getExercisesFromSupabase();
     getWorkoutsFromSupabase();
@@ -56,8 +64,9 @@ export const AppProvider = ({ children }) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ exercises, workouts, isLoggedIn, isCoach, user }}>
+    <AppContext.Provider value={{ exercises, workouts, isLoggedIn, isCoach, user, addExercise, addWorkout }}>
       {children}
     </AppContext.Provider>
   );
 };
+
