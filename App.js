@@ -1,6 +1,5 @@
 // App.js
-
 import { registerRootComponent } from 'expo';
-import MainApp from './MainApp';
+import App from './MainApp'; // Ensure this path is correct
 
-registerRootComponent(MainApp);
+registerRootComponent(App);
