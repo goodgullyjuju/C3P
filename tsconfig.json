@@ -1,5 +1,5 @@
 {
-  "extends": "expo/tsconfig.base",
+  
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
@@ -34,6 +34,7 @@
     "expo-env.d.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "extends": "expo/tsconfig.base"
   ]
 }
