@@ -3,9 +3,11 @@
     "name": "Cover3PerformanceApp",
     "slug": "cover3performanceapp",
     "version": "1.0.0",
+    "sdkVersion": "51.0.0",
+    "platforms": ["ios", "android", "web"],
+    "assetBundlePatterns": ["**/*"],
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "sdkVersion": "51.0.0",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
