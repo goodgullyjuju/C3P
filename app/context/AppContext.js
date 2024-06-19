@@ -1,12 +1,16 @@
 // AppContext.js
+
 import React, { createContext, useState, useEffect } from 'react';
-import { fetchExercises, getAllWorkouts } from '../services/supabaseService'; // Update this import to use Supabase
+import { fetchExercises, getAllWorkouts, supabase } from '../services/supabaseService'; // Update this import to use Supabase
 
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [exercises, setExercises] = useState([]);
   const [workouts, setWorkouts] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isCoach, setIsCoach] = useState(false);
+  const [user, setUser] = useState(null);
 
   const getExercisesFromSupabase = async () => {
     try {
@@ -31,8 +35,28 @@ export const AppProvider = ({ children }) => {
     getWorkoutsFromSupabase();
   }, []);
 
+  useEffect(() => {
+    const checkAuthStatus = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setIsLoggedIn(!!session);
+      if (session) {
+        setUser(session.user);
+        // Logic to determine if the user is a coach
+      }
+    };
+
+    checkAuthStatus();
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      checkAuthStatus();
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
+
   return (
-    <AppContext.Provider value={{ exercises, workouts }}>
+    <AppContext.Provider value={{ exercises, workouts, isLoggedIn, isCoach, user }}>
       {children}
     </AppContext.Provider>
   );

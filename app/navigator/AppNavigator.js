@@ -1,10 +1,10 @@
-// AppNavigator.js
+
 // app/navigator/AppNavigator.js
 
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import HomeScreen from '../screens/HomeScreen';
 // Import Your Screen Components (Replace with your actual component names)
 import LogInScreen from '../screens/LogInScreen';
 import SignUpScreen from '../screens/SignUpScreen';

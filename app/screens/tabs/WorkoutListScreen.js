@@ -17,28 +17,28 @@ export default function WorkoutListScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Workout List Screen</Text>
-      {workouts.map(workout => (
-        <Text key={workout.id} style={styles.workoutText}>{workout.name}</Text>
-      ))}
-    </View>
-  );
+    <Text style={styles.title}>Workouts</Text>
+    <FlatList
+      data={workouts}
+      keyExtractor={(item) => item.id.toString()}
+      renderItem={({ item }) => <Text style={styles.workoutItem}>{item.name}</Text>}
+    />
+  </View>
+);
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  workoutText: {
-    fontSize: 18,
-    marginVertical: 5,
-  },
+container: {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+title: {
+  fontSize: 24,
+  marginBottom: 20,
+},
+workoutItem: {
+  fontSize: 18,
+  marginVertical: 5,
+},
 });
