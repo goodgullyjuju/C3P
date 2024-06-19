@@ -9,9 +9,9 @@ import ClientDashboard from '../screens/ClientDashboard';
 import CoachDashboard from '../screens/CoachDashboard';
 import ProfileScreen from '../screens/ProfileScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import WorkoutListScreen from '../screens/WorkoutListScreen';
+import WorkoutListScreen from '../screens/tabs/WorkoutListScreen';
 import WorkoutDetailsScreen from '../screens/tabs/WorkoutDetailsScreen';
-import ProgressScreen from '../screens/ProgressScreen'; // Importing ProgressScreen
+import ProgressScreen from '../screens/ProgressScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,7 +27,7 @@ export default function AppNavigator() {
       <Stack.Screen name="Settings" component={SettingsScreen} />
       <Stack.Screen name="WorkoutList" component={WorkoutListScreen} />
       <Stack.Screen name="WorkoutDetails" component={WorkoutDetailsScreen} />
-      <Stack.Screen name="Progress" component={ProgressScreen} /> {/* Adding ProgressScreen */}
+      <Stack.Screen name="Progress" component={ProgressScreen} />
     </Stack.Navigator>
   );
 }
