@@ -1,4 +1,5 @@
-// screens/tabs/WorkoutListScreen.js
+// app/screens/tabs/WorkoutListScreen.js
+
 
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
