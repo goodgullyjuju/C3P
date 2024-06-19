@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { fetchClientWorkouts } from '../services/supabaseService'; // Update this import based on your actual Supabase service
-import { AppContext } from '../context/AppContext';
+import { fetchClientWorkouts } from './services/supabaseService'; // Update this import based on your actual Supabase service
+import { AppContext } from './context/AppContext';
 
 export default function ClientDashboard() {
   const { user } = useContext(AppContext); // Assuming user information is stored in the AppContext
