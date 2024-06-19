@@ -10,7 +10,7 @@ import ProfileScreen from '../profile';
 import SettingsScreen from '../settings';
 import WorkoutListScreen from '../exercise-list';
 import WorkoutDetailsScreen from '../(tabs)/workout-details';
-import ProgressScreen from '../screens/ProgressScreen';
+import ProgressScreen from '../progress';
 
 const Stack = createNativeStackNavigator();
 
