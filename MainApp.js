@@ -1,13 +1,15 @@
 // MainApp.js
-
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import Navigator from './app/views/Navigator'; // Adjust the import path
 
-export default function MainApp() {
+export default function App() { // Renamed from MainApp to App
   return (
     <NavigationContainer>
-      <Navigator />
+      {/* 
+        Do not include a <Navigator> component here.
+        Expo Router will handle the navigation based on your app's directory structure.
+      */}
     </NavigationContainer>
   );
 }
+
