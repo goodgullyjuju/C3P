@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { supabase } from '../services/supabaseService'; // Adjust this import based on your actual Supabase service
+import { supabase } from './services/supabaseService'; // Adjust this import based on your actual Supabase service
 
 export default function SignUpScreen() {
   const [email, setEmail] = useState('');
