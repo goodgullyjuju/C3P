@@ -1,17 +1,25 @@
 // app/hooks/useThemeColor.ts
-import { useContext } from 'react';
-import { ThemeContext } from '@react-navigation/native';
+import { useTheme } from '@react-navigation/native';
+
+type ThemeColors = {
+  primary: string;
+  background: string;
+  card: string;
+  text: string;
+  border: string;
+  notification: string;
+};
 
 type Colors = {
-  light: { [key: string]: string };
-  dark: { [key: string]: string };
+  light: ThemeColors;
+  dark: ThemeColors;
 };
 
 export function useThemeColor(
   props: { light?: string; dark?: string },
-  colorName: keyof Colors['light'] & keyof Colors['dark']
+  colorName: keyof ThemeColors
 ) {
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
   const colorFromProps = props[theme.dark ? 'dark' : 'light'];
 
   if (colorFromProps) {

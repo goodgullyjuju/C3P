@@ -1,37 +1,27 @@
 // app/components/ParallaxScrollView.tsx
-import React from 'react';
-import { ScrollView, View, ImageBackground, StyleSheet } from 'react-native';
+import React, { ReactNode } from 'react';
+import { ScrollView, View, StyleSheet } from 'react-native';
 
-const ParallaxScrollView = ({ children, headerImage, headerBackgroundColor }) => {
+type ParallaxScrollViewProps = {
+  children: ReactNode;
+  headerImage: ReactNode;
+  headerBackgroundColor: { light: string; dark: string };
+};
+
+const ParallaxScrollView = ({ children, headerImage, headerBackgroundColor }: ParallaxScrollViewProps) => {
   return (
-    <ScrollView style={styles.scrollView}>
-      <ImageBackground source={headerImage} style={[styles.header, { backgroundColor: headerBackgroundColor }]}>
-        <View style={styles.headerContent}>
-          {headerImage}
-        </View>
-      </ImageBackground>
-      <View style={styles.content}>
-        {children}
+    <ScrollView>
+      <View style={[styles.header, { backgroundColor: headerBackgroundColor.light }]}>
+        {headerImage}
       </View>
+      {children}
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-  },
   header: {
     height: 200,
-  },
-  headerContent: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  content: {
-    flex: 1,
-    padding: 20,
   },
 });
 

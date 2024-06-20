@@ -14,8 +14,6 @@ export const ThemedView = ({ style, lightColor, darkColor, ...otherProps }: Them
   return (
     <View
       style={[{ backgroundColor }, styles.view, style]}
-      accessibilityRole="region"
-      pointerEvents="auto"
       {...otherProps}
     />
   );
@@ -26,5 +24,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     padding: 10,
+    pointerEvents: 'auto', // Use style.pointerEvents if needed
   },
 });
