@@ -1,14 +1,15 @@
 // app/home.tsx
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, Image, StyleSheet, Platform } from 'react-native';
-import { fetchWorkouts, addExercise } from './services/supabaseService';
+import { fetchWorkouts, addExercise } from './services/supabaseService'; // Ensure this path is correct
 import ClientDashboard from './client-dashboard';
 import CoachDashboard from './coach-dashboard';
-import ParallaxScrollView from './components/ParallaxScrollView';
-import { ThemedText } from './components/navigation/ThemedText';
-import { ThemedView } from './components/navigation/ThemedView';
-import HelloWave from './components/HelloWave';
+import ParallaxScrollView from './components/ParallaxScrollView'; // Ensure this path is correct
+import { ThemedText } from './components/navigation/ThemedText'; // Ensure this path is correct
+import { ThemedView } from './components/navigation/ThemedView'; // Ensure this path is correct
+import HelloWave from './components/HelloWave'; // Ensure this path is correct
 
+// Define types for navigation, exercise, and workouts
 interface NavigationProps {
   navigate: (screen: string) => void;
 }
@@ -60,7 +61,8 @@ export default function HomeScreen({ navigation }: Props) {
           source={require('../assets/images/partial-react-logo.png')}
           style={styles.reactLogo}
         />
-      }>
+      }
+    >
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Welcome!</ThemedText>
         <HelloWave />

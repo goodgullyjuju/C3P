@@ -1,7 +1,7 @@
 // app/components/navigation/ThemedText.tsx
 import React from 'react';
 import { Text, type TextProps, StyleSheet } from 'react-native';
-import { useThemeColor } from '../../hooks/useThemeColor';
+import { useThemeColor } from '../../hooks/useThemeColor'; // Ensure this path is correct
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
@@ -9,7 +9,7 @@ export type ThemedTextProps = TextProps & {
   type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
 };
 
-export const ThemedText = ({
+export const ThemedText: React.FC<ThemedTextProps> = ({
   style,
   lightColor,
   darkColor,
@@ -30,7 +30,6 @@ export const ThemedText = ({
         style,
       ]}
       {...rest}
-      accessibilityRole="text" // Correct usage for accessibility
     />
   );
 };

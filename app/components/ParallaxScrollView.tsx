@@ -8,7 +8,7 @@ type ParallaxScrollViewProps = {
   headerBackgroundColor: { light: string; dark: string };
 };
 
-const ParallaxScrollView = ({ children, headerImage, headerBackgroundColor }: ParallaxScrollViewProps) => {
+const ParallaxScrollView: React.FC<ParallaxScrollViewProps> = ({ children, headerImage, headerBackgroundColor }) => {
   return (
     <ScrollView>
       <View style={[styles.header, { backgroundColor: headerBackgroundColor.light }]}>
