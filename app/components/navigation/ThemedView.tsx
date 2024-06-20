@@ -1,14 +1,14 @@
 // app/components/navigation/ThemedView.tsx
 import React from 'react';
 import { View, StyleSheet, type ViewProps } from 'react-native';
-import { useThemeColor } from '../../hooks/useThemeColor'; // Adjust the path as needed
+import { useThemeColor } from '../../hooks/useThemeColor'; // Ensure this path is correct
 
 export type ThemedViewProps = ViewProps & {
   lightColor?: string;
   darkColor?: string;
 };
 
-export function ThemedView({ style, lightColor, darkColor, ...otherProps }: ThemedViewProps) {
+export const ThemedView = ({ style, lightColor, darkColor, ...otherProps }: ThemedViewProps) => {
   const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
 
   return (
@@ -19,7 +19,7 @@ export function ThemedView({ style, lightColor, darkColor, ...otherProps }: Them
       {...otherProps}
     />
   );
-}
+};
 
 const styles = StyleSheet.create({
   view: {
@@ -28,5 +28,3 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
-
-export default ThemedView;

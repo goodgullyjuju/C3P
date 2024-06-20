@@ -7,6 +7,7 @@ import ParallaxScrollView from './components/ParallaxScrollView'; // Ensure this
 import { ThemedText } from './components/navigation/ThemedText'; // Ensure this path is correct
 import { ThemedView } from './components/navigation/ThemedView'; // Ensure this path is correct
 import { HelloWave } from './components/HelloWave'; // Ensure this path is correct
+
 // Define types for navigation, exercise, and workouts
 interface NavigationProps {
   navigate: (screen: string) => void;

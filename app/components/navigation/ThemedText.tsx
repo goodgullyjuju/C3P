@@ -1,7 +1,7 @@
 // app/components/navigation/ThemedText.tsx
 import React from 'react';
 import { Text, type TextProps, StyleSheet } from 'react-native';
-import { useThemeColor } from '../../hooks/useThemeColor'; // Adjust the path as needed
+import { useThemeColor } from '../../hooks/useThemeColor'; // Ensure this path is correct
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
@@ -9,13 +9,13 @@ export type ThemedTextProps = TextProps & {
   type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
 };
 
-export function ThemedText({
+export const ThemedText = ({
   style,
   lightColor,
   darkColor,
   type = 'default',
   ...rest
-}: ThemedTextProps) {
+}: ThemedTextProps) => {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
   return (
@@ -32,7 +32,7 @@ export function ThemedText({
       {...rest}
     />
   );
-}
+};
 
 const styles = StyleSheet.create({
   default: {
@@ -59,5 +59,3 @@ const styles = StyleSheet.create({
     color: '#0a7ea4',
   },
 });
-
-export default ThemedText;
