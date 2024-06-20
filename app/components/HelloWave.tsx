@@ -1,37 +1,24 @@
-import React from 'react';import { StyleSheet } from 'react-native';
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withTiming,
-  withRepeat,
-  withSequence,
-} from 'react-native-reanimated';
+// app/components/HelloWave.tsx
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
-import { ThemedText } from '../components/navigation/ThemedText';
-
-export function HelloWave() {
-  const rotationAnimation = useSharedValue(0);
-
-  rotationAnimation.value = withRepeat(
-    withSequence(withTiming(25, { duration: 150 }), withTiming(0, { duration: 150 })),
-    4 // Run the animation 4 times
-  );
-
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{ rotate: `${rotationAnimation.value}deg` }],
-  }));
-
+const HelloWave = () => {
   return (
-    <Animated.View style={animatedStyle}>
-      <ThemedText style={styles.text}>👋</ThemedText>
-    </Animated.View>
+    <View style={styles.container}>
+      <Text style={styles.text}>👋</Text>
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+  },
   text: {
-    fontSize: 28,
-    lineHeight: 32,
-    marginTop: -6,
+    fontSize: 50,
   },
 });
+
+export default HelloWave;

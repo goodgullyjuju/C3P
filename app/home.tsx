@@ -1,14 +1,14 @@
+// app/home.tsx
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, Image, StyleSheet, Platform } from 'react-native';
-import { fetchWorkouts, addExercise } from './services/supabaseService'; // Ensure this path is correct
+import { fetchWorkouts, addExercise } from './services/supabaseService';
 import ClientDashboard from './client-dashboard';
 import CoachDashboard from './coach-dashboard';
-import ParallaxScrollView from './components/ParallaxScrollView'; // Ensure this path is correct
-import { ThemedText } from './components/navigation/ThemedText'; // Ensure this path is correct
-import { ThemedView } from './components/navigation/ThemedView'; // Ensure this path is correct
-import { HelloWave } from './components/HelloWave'; // Ensure this path is correct
+import ParallaxScrollView from './components/ParallaxScrollView';
+import { ThemedText } from './components/navigation/ThemedText';
+import { ThemedView } from './components/navigation/ThemedView';
+import HelloWave from './components/HelloWave';
 
-// Define types for navigation, exercise, and workouts
 interface NavigationProps {
   navigate: (screen: string) => void;
 }
@@ -92,69 +92,4 @@ export default function HomeScreen({ navigation }: Props) {
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        {!isLoggedIn ? (
-          <>
-            <Button
-              title="Log In"
-              onPress={() => navigation.navigate('LogIn')}
-            />
-            <Button
-              title="Sign Up"
-              onPress={() => navigation.navigate('SignUp')}
-            />
-          </>
-        ) : isCoach ? (
-          <CoachDashboard />
-        ) : (
-          <ClientDashboard />
-        )}
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Text style={styles.title}>Workouts</Text>
-        {workouts.map((workout) => (
-          <Text key={workout.id} style={styles.workoutText}>{workout.name}</Text>
-        ))}
-      </ThemedView>
-    </ParallaxScrollView>
-  );
-}
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  logo: {
-    width: 100,  // Adjust the width as needed
-    height: 100, // Adjust the height as needed
-    marginBottom: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  workoutText: {
-    fontSize: 18,
-    marginVertical: 5,
-  },
-});
+      <ThemedView style={styles

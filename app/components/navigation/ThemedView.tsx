@@ -1,7 +1,7 @@
 // app/components/navigation/ThemedView.tsx
 import React from 'react';
 import { View, StyleSheet, type ViewProps } from 'react-native';
-import { useThemeColor } from '../../hooks/useThemeColor'; // Ensure this path is correct
+import { useThemeColor } from '../../hooks/useThemeColor';
 
 export type ThemedViewProps = ViewProps & {
   lightColor?: string;
@@ -14,8 +14,8 @@ export const ThemedView = ({ style, lightColor, darkColor, ...otherProps }: Them
   return (
     <View
       style={[{ backgroundColor }, styles.view, style]}
-      role="region" // Use role for accessibility
-      pointerEvents="auto" // Use style.pointerEvents if needed
+      accessibilityRole="region"
+      pointerEvents="auto"
       {...otherProps}
     />
   );
