@@ -1,9 +1,9 @@
-// screens/tabs/WorkoutDetailsScreen.js
+
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { getClientWorkout } from '../services/supabaseService'; // Update this import to use Supabase
+import { getClientWorkout } from './services/supabaseService'; // Update this import to use Supabase
 
-export default function WorkoutDetailsScreen() {
+export default function workout_details() {
   const [workout, setWorkout] = useState(null);
 
   useEffect(() => {
