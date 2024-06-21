@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
-import { fetchWorkouts, getClientWorkout } from './services/supabaseService'; // Adjust the import
+import { fetchWorkouts, getClientWorkout } from '../services/supabaseService'; // Adjust the import
 import { useRouter, useSearchParams } from 'expo-router';
 
 export default function Workouts() {

@@ -4,9 +4,9 @@ import { Tabs } from 'expo-router';
 export default function TabLayout() {
   return (
     <Tabs>
-      <Tabs.Screen name="explore" />
-      <Tabs.Screen name="workout" />
-      <Tabs.Screen name="workout-details" />
+      <Tabs.Screen name="Explore" />
+      <Tabs.Screen name="Exercises" />
+      <Tabs.Screen name="Workouts" />
     </Tabs>
   );
 }
