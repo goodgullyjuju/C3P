@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { fetchExercises } from '@/services/supabaseService';
 import ExerciseList from '@/components/ExerciseList'; // Import the component
+import { View, Text, FlatList, StyleSheet } from 'react-native'; // Import StyleSheet
 
 export default function ExerciseListScreen() {
-
   
     const [exercises, setExercises] = useState([]);
   useEffect(() => {
