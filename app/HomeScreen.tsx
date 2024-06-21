@@ -1,4 +1,4 @@
-// app/home.tsx
+//app/HomeScreen.tsx
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, Image, StyleSheet, Platform } from 'react-native';
 import { fetchWorkouts, addExercise } from './services/supabaseService'; // Ensure this path is correct
