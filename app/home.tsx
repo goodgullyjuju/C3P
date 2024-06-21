@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, Image, StyleSheet, Platform } from 'react-native';
 import { fetchWorkouts, addExercise } from './services/supabaseService'; // Ensure this path is correct
-import ClientDashboard from './client-dashboard';
-import CoachDashboard from './coach-dashboard';
+import ClientDashboard from './ClientDashboard';
+import CoachDashboard from './CoachDashboard';
 import ParallaxScrollView from './components/ParallaxScrollView'; // Ensure this path is correct
 import { ThemedText } from './components/navigation/ThemedText'; // Ensure this path is correct
 import { ThemedView } from './components/navigation/ThemedView'; // Ensure this path is correct
