@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
-import { fetchExercises } from './services/supabaseService';
+import { fetchExercises } from '@/services/supabaseService';
+import ExerciseList from '@/components/ExerciseList'; // Import the component
 
-const ExerciseListScreen = () => {
-  const [exercises, setExercises] = useState([]);
+export default function ExerciseListScreen() {
 
+  
+    const [exercises, setExercises] = useState([]);
   useEffect(() => {
     const loadExercises = async () => {
       const data = await fetchExercises();
@@ -23,11 +24,7 @@ const ExerciseListScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Exercise List</Text>
-      <FlatList
-        data={exercises}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
-      />
+      <ExerciseList exercises={exercises} />  {/* Pass exercises as prop */}
     </View>
   );
 };
@@ -58,4 +55,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ExerciseListScreen;
+

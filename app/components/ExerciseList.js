@@ -1,10 +1,10 @@
-// ExerciseList.js
-import React, { useContext } from 'react';
+// app/components/ExerciseList.js
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { AppContext } from '../context/AppContext'; // Corrected path
 
-const ExerciseList = () => {
-  const { exercises } = useContext(AppContext);
+
+const ExerciseList = ({ exercises }) => { // Receive exercises as a prop
+  
 
   return (
     <View style={styles.container}>
