@@ -1,13 +1,12 @@
 // MainApp.js
+
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
-
-
-export default function MainApp() {
+export default function App() { 
   return (
     <NavigationContainer>
-      {/* Expo Router will handle the navigation based on your app's directory structure */}
+      {/* Expo Router will handle navigation here */}
     </NavigationContainer>
   );
 }
