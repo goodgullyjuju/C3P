@@ -3,10 +3,10 @@ import React from 'react';
 import { Stack } from 'expo-router';
 import { Image, StyleSheet, Platform } from 'react-native';
 
-import { HelloWave } from '@components/HelloWave';
-import ParallaxScrollView from '@components/ParallaxScrollView';
-import { ThemedText } from '@navigation/ThemedText';
-import { ThemedView } from '@navigation/ThemedView';
+import HelloWave from '../components/HelloWave';
+import ParallaxScrollView from '../components/ParallaxScrollView';
+import { ThemedText } from '../components/navigation/ThemedText';
+import { ThemedView } from '../components/navigation/ThemedView';
 
 export default function Index() {
   return (
@@ -66,8 +66,7 @@ export default function Index() {
       <Stack.Screen name="(tabs)/index" options={{ title: "Tabs" }} />
       <Stack.Screen name="(tabs)/explore" options={{ title: "Explore" }} />
       <Stack.Screen name="(tabs)/exercises" options={{ title: "Exercises" }} />
-      <Stack.Screen name="(tabs)/workouts" options={{ title: "Workouts" }} /> 
-      
+      <Stack.Screen name="(tabs)/workouts" options={{ title: "Workouts" }} />
     </Stack>
   );
 }
@@ -90,5 +89,3 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
 });
-
-
