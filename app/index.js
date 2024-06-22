@@ -11,14 +11,14 @@ import { ThemedText } from './components/navigation/ThemedText'; // Ensure this 
 import { ThemedView } from './components/navigation/ThemedView'; // Ensure this path is correct
 
 // Data Fetching
-import { fetchWorkouts } from '@/services/supabaseService';
+import { fetchWorkouts } from './services/supabaseService';
 
 // Screens
-import ClientDashboard from '@/client-dashboard';
-import CoachDashboard from '@/coach-dashboard';
+import ClientDashboard from './components/ClientDashboard';
+import CoachDashboard from './components/CoachDashboard';
 
 
-export default function Index() {
+export default function index() {
   // ... (your useState and useEffect code for isLoggedIn, isCoach, workouts)
 
   return (
