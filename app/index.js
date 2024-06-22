@@ -14,8 +14,8 @@ import { ThemedView } from './components/navigation/ThemedView'; // Ensure this 
 import { fetchWorkouts } from './services/supabaseService';
 
 // Screens
-import ClientDashboard from './components/ClientDashboard';
-import CoachDashboard from './components/CoachDashboard';
+import ClientDashboard from './ClientDashboard';
+import CoachDashboard from './CoachDashboard';
 
 
 export default function index() {
