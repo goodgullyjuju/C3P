@@ -3,7 +3,7 @@ import { fetchExercises } from '@/services/supabaseService';
 import ExerciseList from '@/components/ExerciseList'; // Import the component
 import { View, Text, FlatList, StyleSheet } from 'react-native'; // Import StyleSheet
 
-export default function ExerciseListScreen() {
+export default function exercises() {
   
     const [exercises, setExercises] = useState([]);
   useEffect(() => {
