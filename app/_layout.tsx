@@ -1,14 +1,14 @@
 // app/_layout.tsx
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack, Tabs } from 'expo-router';
+import { Stack, Tabs } from 'expo-router'; // Correct the import
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
-import { useColorScheme, View, Text, StyleSheet } from 'react-native';
+import { useColorScheme, View, Text, Button, StyleSheet } from 'react-native';
 
 // Icon imports
-import { Ionicons } from '@expo/vector-icons/Ionicons';  // Import Ionicons 
-import { MaterialCommunityIcons } from '@expo/vector-icons/MaterialCommunityIcons';
+import Ionicons from '@expo/vector-icons/Ionicons';  // Import Ionicons 
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 // Custom Error Fallback Component
 const ErrorFallback = () => (
@@ -17,11 +17,30 @@ const ErrorFallback = () => (
   </View>
 );
 
+//Styles are defined here outside of the RootLayout function
+const styles = StyleSheet.create({
+  errorContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  errorText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  errorMessage: {
+    fontSize: 16,
+    marginBottom: 20,
+  },
+});
+
 export default function RootLayout() {
   const colorScheme = useColorScheme();
 
   const [loaded] = useFonts({
-    SpaceMonoRegular: require('@/assets/fonts/SpaceMono-Regular.ttf'),
+    'SpaceMonoRegular': require('@/assets/fonts/SpaceMono-Regular.ttf'),
   });
 
   useEffect(() => {
@@ -36,7 +55,7 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Tabs> 
+      <Tabs>
         <Tabs.Screen
           name="index"
           options={{
@@ -74,6 +93,8 @@ export default function RootLayout() {
             ),
           }}
         />
+
+        {/* Remove Stack Navigator and related Stack.Screen components */}
       </Tabs>
     </ThemeProvider>
   );
