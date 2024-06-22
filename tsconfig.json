@@ -1,4 +1,4 @@
-{"extends": "./tsconfig.json",
+{
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
@@ -34,5 +34,5 @@
   "exclude": [
     "node_modules"
   ],
-    // Adjust the path
+    
 }
