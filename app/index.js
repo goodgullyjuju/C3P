@@ -1,4 +1,4 @@
-// app/Index.js
+// app/index.js
 import React from 'react';
 import { Stack } from 'expo-router';
 import { Image, StyleSheet, Platform } from 'react-native';
@@ -10,7 +10,7 @@ import { ThemedText } from '@/components/navigation/ThemedText';
 import { ThemedView } from '@/components/navigation/ThemedView'; 
 
 
-export default function Index() {
+export default function index() {
   return (
     <Stack>
       <Stack.Screen name="HomeScreen" options={{ title: "HomeScreen" }}>
@@ -31,7 +31,7 @@ export default function Index() {
             <ThemedView style={styles.stepContainer}>
               <ThemedText type="subtitle">Step 1: Try it</ThemedText>
               <ThemedText>
-                Edit <ThemedText type="defaultSemiBold">app/Index.js</ThemedText> to see changes.
+                Edit <ThemedText type="defaultSemiBold">app/index.js</ThemedText> to see changes.
                 Press{' '}
                 <ThemedText type="defaultSemiBold">
                   {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
@@ -65,7 +65,7 @@ export default function Index() {
       <Stack.Screen name="ExerciseList" options={{ title: "Exercise List" }} />
       <Stack.Screen name="ProfileScreen" options={{ title: "Profile" }} />
       <Stack.Screen name="SettingScreen" options={{ title: "Settings" }} />
-      <Stack.Screen name="(tabs)/Index" options={{ title: "Tabs" }} />
+      <Stack.Screen name="(tabs)/index" options={{ title: "Tabs" }} />
       <Stack.Screen name="(tabs)/ExploreScreen" options={{ title: "Explore" }} />
       <Stack.Screen name="(tabs)/exercises" options={{ title: "Exercises" }} />
       <Stack.Screen name="(tabs)/workouts" options={{ title: "Workouts" }} />
