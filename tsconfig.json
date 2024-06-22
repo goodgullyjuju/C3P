@@ -34,5 +34,5 @@
   "exclude": [
     "node_modules"
   ],
-  "extends": "./Users/katherinegierszal/Cover3PerformanceApp/tsconfig.json"  // Adjust the path
+  "extends": "./tsconfig.json"  // Adjust the path
 }
