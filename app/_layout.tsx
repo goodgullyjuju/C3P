@@ -5,7 +5,7 @@ import { Stack, Tabs } from 'expo-router'; // Correct the import
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { useColorScheme, View, Text, Button, StyleSheet } from 'react-native';
-
+import { useAssets } from 'expo-asset';  // Import useAssets
 // Icon imports
 import Ionicons from '@expo/vector-icons/Ionicons';  // Import Ionicons 
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
@@ -52,7 +52,25 @@ export default function RootLayout() {
   if (!loaded) {
     return null;
   }
+  const [assets, error] = useAssets([require('@/assets/fonts/SpaceMono-Regular.ttf')]);
+  
 
+  useEffect(() => {
+    if (loaded && assets) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded, assets]);
+
+  if (!loaded || !assets) { // Check if both fonts and assets are loaded
+    return null;
+  }
+
+  // Error handling for asset loading
+  if (error) {
+    console.error("Error loading assets:", error);
+    // You might want to display an error message or fallback UI here.
+    return <Text>Error loading assets!</Text>; 
+  }
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Tabs>
