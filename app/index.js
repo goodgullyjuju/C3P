@@ -5,10 +5,10 @@ import { View, Text, Button, Image, StyleSheet, Platform } from 'react-native';
 import { Link } from 'expo-router';
 
 // Components
-import HelloWave from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import HelloWave from './components/HelloWave';
+import ParallaxScrollView from './components/ParallaxScrollView';
+import { ThemedText } from './components/navigation/ThemedText'; // Ensure this path is correct
+import { ThemedView } from './components/navigation/ThemedView'; // Ensure this path is correct
 
 // Data Fetching
 import { fetchWorkouts } from '@/services/supabaseService';
