@@ -1,56 +1,23 @@
 // app/_layout.tsx
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Stack, Tabs } from 'expo-router'; // Correct the import
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
-import { useColorScheme, View, Text, StyleSheet } from 'react-native';
+import { useColorScheme, View, Text, Button, StyleSheet } from 'react-native';
 
-SplashScreen.preventAutoHideAsync();
+// Icon imports
+import Ionicons from '@expo/vector-icons/Ionicons';  // Import Ionicons 
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
-// Custom Error Fallback Component (simplified)
+// Custom Error Fallback Component
 const ErrorFallback = () => (
   <View style={styles.errorContainer}>
     <Text style={styles.errorText}>Oops, something went wrong!</Text>
   </View>
 );
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-
-  const [loaded] = useFonts({
-    'SpaceMonoRegular': require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="(tabs)/index" options={{ title: "Home" }} />
-        <Stack.Screen name="LogInScreen" options={{ title: "Log In" }} />
-        <Stack.Screen name="SignUpScreen" options={{ title: "Sign Up" }} />
-        <Stack.Screen name="ClientDashboard" options={{ title: "Client Dashboard" }} />
-        <Stack.Screen name="CoachDashboard" options={{ title: "Coach Dashboard" }} />
-        <Stack.Screen name="ExerciseList" options={{ title: "Exercise List" }} />
-        <Stack.Screen name="ProfileScreen" options={{ title: "Profile" }} />
-        <Stack.Screen name="SettingScreen" options={{ title: "Settings" }} />
-        <Stack.Screen name="(tabs)/explore" options={{ title: "Explore" }} />
-        <Stack.Screen name="(tabs)/exercises" options={{ title: "Exercises" }} />
-        <Stack.Screen name="(tabs)/workouts" options={{ title: "Workouts" }} /> 
-      </Stack>
-    </ThemeProvider>
-  );
-}
-
+//Styles are defined here outside of the RootLayout function
 const styles = StyleSheet.create({
   errorContainer: {
     flex: 1,
@@ -68,3 +35,67 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 });
+
+export default function RootLayout() {
+  const colorScheme = useColorScheme();
+
+  const [loaded] = useFonts({
+    'SpaceMonoRegular': require('@/assets/fonts/SpaceMono-Regular.ttf'),
+  });
+
+  useEffect(() => {
+    if (loaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded]);
+
+  if (!loaded) {
+    return null;
+  }
+
+  return (
+    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <Tabs>
+        <Tabs.Screen
+          name="index"
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="home" color={color} size={size} />
+            ),
+            headerShown: false // Hide header for the Home tab
+          }}
+        />
+        <Tabs.Screen 
+          name="exercises" 
+          options={{
+            tabBarLabel: 'Exercises',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="weight-lifter" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tabs.Screen 
+          name="workouts"
+          options={{
+            tabBarLabel: 'Workouts',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="dumbbell" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tabs.Screen 
+          name="profile"
+          options={{
+            tabBarLabel: 'Profile',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="person-circle" color={color} size={size} />
+            ),
+          }}
+        />
+
+        {/* Remove Stack Navigator and related Stack.Screen components */}
+      </Tabs>
+    </ThemeProvider>
+  );
+}

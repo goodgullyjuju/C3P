@@ -6,7 +6,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/navigation/ThemedText';
 import { ThemedView } from '@/components/navigation/ThemedView';
 
-export default function ExploreScreen() {
+export default function explore() {
   return (
     <ThemedView style={styles.container}>
       <ParallaxScrollView
