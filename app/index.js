@@ -11,7 +11,7 @@ import { ThemedView } from '../components/navigation/ThemedView';
 export default function Index() {
   return (
     <Stack>
-      <Stack.Screen name="home" options={{ title: "Home" }}>
+      <Stack.Screen name="HomeScreen" options={{ title: "HomeScreen" }}>
         {() => (
           <ParallaxScrollView
             headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -63,7 +63,7 @@ export default function Index() {
       <Stack.Screen name="ExerciseList" options={{ title: "Exercise List" }} />
       <Stack.Screen name="ProfileScreen" options={{ title: "Profile" }} />
       <Stack.Screen name="SettingScreen" options={{ title: "Settings" }} />
-      <Stack.Screen name="(tabs)/index" options={{ title: "Tabs" }} />
+      <Stack.Screen name="(tabs)/Index" options={{ title: "Tabs" }} />
       <Stack.Screen name="(tabs)/ExploreScreen" options={{ title: "Explore" }} />
       <Stack.Screen name="(tabs)/exercises" options={{ title: "Exercises" }} />
       <Stack.Screen name="(tabs)/workouts" options={{ title: "Workouts" }} />

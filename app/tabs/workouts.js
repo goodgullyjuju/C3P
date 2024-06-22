@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native
 import { fetchWorkouts, getClientWorkout } from '../services/supabaseService'; // Adjust the import
 import { useRouter, useSearchParams } from 'expo-router';
 
-export default function Workouts() {
+export default function workouts() {
   const router = useRouter();
   const { id } = useSearchParams(); // Get workout ID from the URL
   const [workouts, setWorkouts] = useState([]);
