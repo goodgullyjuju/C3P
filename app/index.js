@@ -64,7 +64,7 @@ export default function Index() {
       <Stack.Screen name="ProfileScreen" options={{ title: "Profile" }} />
       <Stack.Screen name="SettingScreen" options={{ title: "Settings" }} />
       <Stack.Screen name="(tabs)/index" options={{ title: "Tabs" }} />
-      <Stack.Screen name="(tabs)/explore" options={{ title: "Explore" }} />
+      <Stack.Screen name="(tabs)/ExploreScreen" options={{ title: "Explore" }} />
       <Stack.Screen name="(tabs)/exercises" options={{ title: "Exercises" }} />
       <Stack.Screen name="(tabs)/workouts" options={{ title: "Workouts" }} />
     </Stack>
