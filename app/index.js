@@ -3,8 +3,9 @@ import React from 'react';
 import { Stack } from 'expo-router';
 import { Image, StyleSheet, Platform } from 'react-native';
 
-import HelloWave from '../components/HelloWave';
-import ParallaxScrollView from '../components/ParallaxScrollView';
+import HelloWave from '@/components/HelloWave'; // Use @/ for absolute path
+
+import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '../components/navigation/ThemedText';
 import { ThemedView } from '../components/navigation/ThemedView';
 
