@@ -1,13 +1,14 @@
 // app/_layout.tsx
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack, Tabs } from 'expo-router'; // Correct the import
+import { Tabs } from 'expo-router'; // Use Tabs instead of Stack
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
-import { useColorScheme, View, Text, Button, StyleSheet } from 'react-native';
+import { useColorScheme, View, Text, StyleSheet } from 'react-native';
 import { useAssets } from 'expo-asset';  // Import useAssets
+
 // Icon imports
-import Ionicons from '@expo/vector-icons/Ionicons';  // Import Ionicons 
+import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 // Custom Error Fallback Component
@@ -17,7 +18,6 @@ const ErrorFallback = () => (
   </View>
 );
 
-//Styles are defined here outside of the RootLayout function
 const styles = StyleSheet.create({
   errorContainer: {
     flex: 1,
@@ -40,21 +40,10 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
 
   const [loaded] = useFonts({
-    SpaceMonoRegular: require('../assets/fonts/SpaceMono-Regular.ttf'), // Remove the alias
+    SpaceMonoRegular: require('../assets/fonts/SpaceMono-Regular.ttf'), // Ensure the path is correct
   });
-  
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-  const [assets, error] = useAssets([require('@/assets/fonts/SpaceMono-Regular.ttf')]);
-  
+  const [assets, error] = useAssets([require('../assets/fonts/SpaceMono-Regular.ttf')]);
 
   useEffect(() => {
     if (loaded && assets) {
@@ -72,6 +61,7 @@ export default function RootLayout() {
     // You might want to display an error message or fallback UI here.
     return <Text>Error loading assets!</Text>; 
   }
+
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Tabs>
@@ -112,8 +102,6 @@ export default function RootLayout() {
             ),
           }}
         />
-
-        {/* Remove Stack Navigator and related Stack.Screen components */}
       </Tabs>
     </ThemeProvider>
   );

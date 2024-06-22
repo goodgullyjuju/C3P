@@ -33,6 +33,6 @@
   ],
   "exclude": [
     "node_modules"
-    ],
-    "extends": "expo/tsconfig.base" 
+  ],
+  "extends": "./Users/katherinegierszal/Cover3PerformanceApp/tsconfig.json"  // Adjust the path
 }
