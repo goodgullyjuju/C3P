@@ -19,7 +19,7 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
 
   const [loaded] = useFonts({
-    'SpaceMonoRegular': require('../assets/fonts/SpaceMono-Regular.ttf'), // Correct the path to the font file
+    'SpaceMonoRegular': require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
 
   useEffect(() => {
@@ -34,9 +34,18 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      {/* Removed the router prop from Stack  */}
       <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="index" />
+        <Stack.Screen name="(tabs)/index" options={{ title: "Home" }} />
+        <Stack.Screen name="LogInScreen" options={{ title: "Log In" }} />
+        <Stack.Screen name="SignUpScreen" options={{ title: "Sign Up" }} />
+        <Stack.Screen name="ClientDashboard" options={{ title: "Client Dashboard" }} />
+        <Stack.Screen name="CoachDashboard" options={{ title: "Coach Dashboard" }} />
+        <Stack.Screen name="ExerciseList" options={{ title: "Exercise List" }} />
+        <Stack.Screen name="ProfileScreen" options={{ title: "Profile" }} />
+        <Stack.Screen name="SettingScreen" options={{ title: "Settings" }} />
+        <Stack.Screen name="(tabs)/explore" options={{ title: "Explore" }} />
+        <Stack.Screen name="(tabs)/exercises" options={{ title: "Exercises" }} />
+        <Stack.Screen name="(tabs)/workouts" options={{ title: "Workouts" }} /> 
       </Stack>
     </ThemeProvider>
   );
