@@ -1,21 +1,23 @@
 // metro.config.js
-const { getDefaultConfig } = require("expo/metro-config");
+const { getDefaultConfig } = require('expo/metro-config');
 
-/** @type {import('expo/metro-config').MetroConfig} */
-const config = getDefaultConfig(__dirname);
+module.exports = (async () => {
+  const config = await getDefaultConfig(__dirname);
 
-// Add the following line to your existing config 
-if (
-    config.resolver &&
-    config.resolver.sourceExts &&
-    Array.isArray(config.resolver.sourceExts)
-  ) {
+  // Ensure `cjs` extensions are resolved
+  if (config.resolver && config.resolver.sourceExts && Array.isArray(config.resolver.sourceExts)) {
     config.resolver.sourceExts.push('cjs');
   }
 
-// Add this configuration to resolve your font assets
-config.resolver.assetExts = process.env.NODE_ENV === "production"
-  ? ["ttf", "otf", "woff", "woff2"]
-  : config.resolver.assetExts.filter(ext => ext !== "svg");
-
-module.exports = config;
+  return {
+    ...config,
+    transformer: {
+      ...config.transformer,
+      assetPlugins: ['expo-asset/tools/hashAssetFiles'],
+    },
+    resolver: {
+      ...config.resolver,
+      assetExts: [...config.resolver.assetExts, 'ttf', 'otf', 'woff', 'woff2'],
+    },
+  };
+})();
