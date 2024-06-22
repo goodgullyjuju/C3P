@@ -18,8 +18,24 @@ import ClientDashboard from './ClientDashboard';
 import CoachDashboard from './CoachDashboard';
 
 
-export default function index() {
-  // ... (your useState and useEffect code for isLoggedIn, isCoach, workouts)
+export default function Index() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isCoach, setIsCoach] = useState(false);
+  const [workouts, setWorkouts] = useState([]);
+  const router = useRouter();
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      // Your authentication logic here
+    };
+    checkAuth();
+    getExercisesFromSupabase();
+  }, []);
+
+  const getExercisesFromSupabase = async () => {
+    const exercises = await fetchWorkouts();
+    setWorkouts(exercises);
+  };
 
   return (
     <ParallaxScrollView
@@ -110,5 +126,17 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     position: 'absolute',
+  },
+  workoutList: {
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  workoutText: {
+    fontSize: 18,
+    marginVertical: 5,
   },
 });
