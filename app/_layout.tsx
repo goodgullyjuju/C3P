@@ -40,7 +40,7 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
 
   const [loaded] = useFonts({
-    'SpaceMonoRegular': require('@/assets/fonts/SpaceMono-Regular.ttf'),
+    'SpaceMonoRegular': require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
 
   useEffect(() => {
