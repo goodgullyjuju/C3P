@@ -2,7 +2,10 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
-    "lib": ["dom", "esnext"],
+    "lib": [
+      "dom",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -17,13 +20,27 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./app/*"],
-      "@components/*": ["./app/components/*"],
-      "@navigation/*": ["./app/components/navigation/*"],
-      "@hooks/*": ["./app/hooks/*"],
-      "@context/*": ["./app/context/*"],
-      "@services/*": ["./app/services/*"],
-      "expo-router": ["./node_modules/expo-router"]
+      "@/*": [
+        "./app/*"
+      ],
+      "@components/*": [
+        "./app/components/*"
+      ],
+      "@navigation/*": [
+        "./app/components/navigation/*"
+      ],
+      "@hooks/*": [
+        "./app/hooks/*"
+      ],
+      "@context/*": [
+        "./app/context/*"
+      ],
+      "@services/*": [
+        "./app/services/*"
+      ],
+      "expo-router": [
+        "./node_modules/expo-router"
+      ]
     }
   },
   "include": [
@@ -34,5 +51,6 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "extends": "expo/tsconfig.base"
 }
