@@ -41,6 +41,9 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+       "entryPoint": "./AppEntry.js"
+       
+     
   }
 }
