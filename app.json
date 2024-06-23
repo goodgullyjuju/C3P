@@ -35,15 +35,10 @@
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-    "plugins": [
-      "expo-router",
-      "expo-asset"
-    ],
+    "entryPoint": "./AppEntry.js",
+    "plugins": [],
     "experiments": {
       "typedRoutes": true
-    },
-       "entryPoint": "./AppEntry.js"
-       
-     
+    }
   }
 }
