@@ -1,7 +1,7 @@
 // app/_layout.tsx
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Tabs } from 'expo-router'; // Use Tabs instead of Stack
+import { Tabs } from 'expo-router'; // Ensure expo-router is installed
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { useColorScheme, View, Text, StyleSheet } from 'react-native';
@@ -69,7 +69,7 @@ export default function RootLayout() {
           name="index"
           options={{
             tabBarLabel: 'Home',
-            tabBarIcon: ({ color, size }) => (
+            tabBarIcon: ({ color, size }: { color: string; size: number }) => (
               <Ionicons name="home" color={color} size={size} />
             ),
             headerShown: false // Hide header for the Home tab
@@ -79,7 +79,7 @@ export default function RootLayout() {
           name="exercises" 
           options={{
             tabBarLabel: 'Exercises',
-            tabBarIcon: ({ color, size }) => (
+            tabBarIcon: ({ color, size }: { color: string; size: number }) => (
               <MaterialCommunityIcons name="weight-lifter" color={color} size={size} />
             ),
           }}
@@ -88,7 +88,7 @@ export default function RootLayout() {
           name="workouts"
           options={{
             tabBarLabel: 'Workouts',
-            tabBarIcon: ({ color, size }) => (
+            tabBarIcon: ({ color, size }: { color: string; size: number }) => (
               <MaterialCommunityIcons name="dumbbell" color={color} size={size} />
             ),
           }}
@@ -97,7 +97,7 @@ export default function RootLayout() {
           name="profile"
           options={{
             tabBarLabel: 'Profile',
-            tabBarIcon: ({ color, size }) => (
+            tabBarIcon: ({ color, size }: { color: string; size: number }) => (
               <Ionicons name="person-circle" color={color} size={size} />
             ),
           }}
