@@ -39,8 +39,7 @@
     "plugins":["expo-router", "expo-asset"], 
     "experiments": {
       "typedRoutes": true
-    },
-    "entryPoint": "./AppEntry.js"
+    }
 
   }
 }
