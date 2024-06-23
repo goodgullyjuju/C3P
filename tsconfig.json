@@ -37,6 +37,9 @@
       ],
       "@services/*": [
         "./app/services/*"
+      ],
+      "expo-router": [
+        "./node_modules/expo-router"
       ]
     }
   },
